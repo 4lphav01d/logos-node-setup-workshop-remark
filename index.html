@@ -17,11 +17,10 @@
       --text: #1a1a2e;
       --text-muted: #1e3d59b3;
       --border: #d1dde1;
-      --success: #68aa4a;
       --code-bg: #1a1a2e;
       --code-text: #e4e4ef;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
@@ -29,27 +28,42 @@
     .remark-container { background: var(--bg); }
     .remark-slide-scaler { box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
     .remark-slide-content {
-      font-size: 1.6rem;
-      padding: 2.5em 3em;
+      font-size: 1.15rem;
+      line-height: 1.35;
+      padding: 1.4em 2em;
       background: var(--bg);
       color: var(--text);
       border-top: 5px solid var(--blue);
+      display: flex;
+      flex-direction: column;
     }
-    h1, h2, h3 { font-weight: 700; line-height: 1.15; }
-    h1 { font-size: 2.8rem; color: var(--blue); margin-bottom: 0.3em; }
-    h2 { font-size: 2.2rem; color: var(--blue); margin-bottom: 0.4em; }
-    h3 { font-size: 1.6rem; color: var(--blue); margin-bottom: 0.4em; }
-    p { line-height: 1.6; margin: 0.5em 0; }
-    ul, ol { line-height: 1.7; padding-left: 1.2em; }
-    li { margin: 0.3em 0; }
+    .remark-slide-content.center,
+    .remark-slide-content.middle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1, h2, h3 { font-weight: 700; line-height: 1.15; flex-shrink: 0; }
+    h1 { font-size: 2rem; color: var(--blue); margin: 0 0 0.25em; }
+    h2 { font-size: 1.5rem; color: var(--blue); margin: 0.25em 0 0.2em; }
+    h3 { font-size: 1.15rem; color: var(--blue); margin: 0.25em 0 0.15em; }
+    .remark-slide-content.center h1 { margin-top: 0; }
+    .remark-slide-content.center h2 { margin-top: 0.5em; }
+    p { margin: 0.2em 0; flex-shrink: 0; }
+    ul, ol { line-height: 1.35; padding-left: 1em; margin: 0.15em 0; flex-shrink: 0; }
+    li { margin: 0.1em 0; }
     blockquote {
       border-left: 4px solid var(--blue);
       background: var(--bg-alt);
-      padding: 0.6em 1em;
-      margin: 0.8em 0;
-      border-radius: 0 8px 8px 0;
+      padding: 0.4em 0.8em;
+      margin: 0.3em 0;
+      border-radius: 0 6px 6px 0;
       font-style: italic;
       color: var(--text-muted);
+      font-size: 0.9em;
+      flex-shrink: 0;
     }
     code {
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
@@ -58,28 +72,31 @@
     .remark-code {
       background: var(--code-bg);
       color: var(--code-text);
-      border-radius: 8px;
-      padding: 0.8em 1em;
-      font-size: 0.75em;
-      line-height: 1.5;
+      border-radius: 6px;
+      padding: 0.35em 0.65em;
+      font-size: 0.65em;
+      line-height: 1.35;
       overflow-x: auto;
+      margin: 0.15em 0;
+      flex-shrink: 0;
     }
     .remark-inline-code {
       background: var(--bg-alt);
       color: var(--blue);
-      padding: 0.15em 0.4em;
-      border-radius: 4px;
+      padding: 0.1em 0.3em;
+      border-radius: 3px;
       font-size: 0.85em;
     }
     table {
       border-collapse: collapse;
       width: 100%;
-      margin: 0.8em 0;
-      font-size: 0.9em;
+      margin: 0.3em 0;
+      font-size: 0.75em;
+      flex-shrink: 0;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 0.5em 0.8em;
+      padding: 0.25em 0.5em;
       text-align: left;
     }
     th { background: var(--blue); color: #fff; font-weight: 600; }
@@ -89,20 +106,12 @@
     a:hover { text-decoration: underline; }
     strong { color: var(--blue); }
     .remark-slide-number {
-      font-size: 0.7rem;
-      opacity: 0.5;
-      bottom: 1em;
-      right: 1.5em;
+      font-size: 0.65rem;
+      opacity: 0.4;
+      bottom: 0.6em;
+      right: 1em;
     }
-    .remark-notes { font-size: 0.8rem; }
-    .footnote { font-size: 0.75rem; color: var(--text-muted); }
-    hr { border: none; border-top: 2px solid var(--border); margin: 1em 0; }
-    .logos-header {
-      display: flex; align-items: center; gap: 0.5em;
-      position: absolute; top: 0.8em; right: 1.2em;
-      font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.05em;
-    }
-    .logos-header svg { width: 20px; height: 20px; }
+    hr { border: none; border-top: 2px solid var(--border); margin: 0.4em 0; flex-shrink: 0; }
     @media print {
       .remark-slide-scaler { box-shadow: none; }
     }
@@ -158,8 +167,6 @@ Choose the one that fits your platform and interest!
 
 ## Platform Comparison
 
-Which node works on your machine?
-
 | Node Type | Linux | macOS | Windows | Easiest Method |
 |-----------|-------|-------|---------|----------------|
 | **Basecamp** | ✅ AppImage | ✅ DMG | ❌ | Download binary |
@@ -195,8 +202,6 @@ Methods 1, 2, and 3 are covered in detail.
 ---
 
 ## Wait — what is Docker?
-
-A quick explainer before we use it:
 
 ### 🐳 Docker
 Packages software into **containers** — like a lightweight virtual machine that has everything the software needs to run.
@@ -238,9 +243,7 @@ The easiest way to run a Logos node — a desktop application with a graphical i
 
 ---
 
-## Method 2: Logos Delivery via Docker Compose
-
-A messaging node (**Waku** protocol) using Docker Compose. Works on **Linux**, **macOS**, and **Windows** (experimental). If you don't have Docker yet, the next slide shows how to install it.
+## Method 2: Installing Docker
 
 ### Prerequisite: Install Docker
 
@@ -261,7 +264,11 @@ Install **WSL2** from `aka.ms/wsl2`, then install **Docker Desktop**.
 
 Verify with: `docker --version` and `docker compose version`
 
-### Logos Delivery — Step by Step
+---
+
+## Method 2: Docker Compose — Step by Step
+
+Clone, configure, and start a Logos Delivery (**Waku**) messaging node.
 
 1. **Clone the compose repository:**
    ```
@@ -277,8 +284,6 @@ Verify with: `docker --version` and `docker compose version`
 
 3. **Edit the `.env` file** — set your RPC endpoint:
    ```
-   # Open .env in any text editor
-   # Find and set:
    RLN_RELAY_ETH_CLIENT_ADDRESS=https://linea-sepolia.infura.io/v3/YOUR_KEY
    ```
    Get a free Infura key at `infura.io` (Linea Sepolia)
@@ -295,11 +300,22 @@ Verify with: `docker --version` and `docker compose version`
    ```
    Press `Ctrl+C` to stop viewing logs (node keeps running).
 
-### Logos Delivery — Verify & Dashboard
+---
 
-- **📊 Open the Grafana dashboard:** Visit `http://localhost:3000` in your browser. Default login: **admin** / **admin**
-- **🔌 Check the REST API:** `curl http://localhost:8645/debug/v1/info | jq .`
-- **🛑 Stop the node:** `docker compose down`
+## Method 2: Verify & Dashboard
+
+### 📊 Grafana Dashboard
+Visit `http://localhost:3000` in your browser. Default login: **admin** / **admin**
+
+### 🔌 REST API
+```
+curl http://localhost:8645/debug/v1/info | jq .
+```
+
+### 🛑 Stop the node
+```
+docker compose down
+```
 
 ---
 
@@ -307,7 +323,7 @@ Verify with: `docker --version` and `docker compose version`
 
 No Docker required — download and run directly on your system. Works on **Linux** (x86_64) and **macOS** (ARM64/Intel). Windows support is experimental.
 
-### Logos Delivery Binary — Step by Step
+### Step by Step
 
 1. **Go to the releases page:**
    ```
@@ -343,18 +359,16 @@ No Docker required — download and run directly on your system. Works on **Linu
 
 ---
 
-## Method 4: Blockchain Node (Binary)
+## Method 4: Blockchain Node — Setup
 
 Run a full consensus node on the Logos testnet.
 
 ⚠️ **Linux only** (x86_64 or Raspberry Pi 5). Requires **64 GB+ storage** and **glibc 2.39+**.
 
-### Blockchain Node — Step by Step
+### Step by Step
 
 1. **Download the node binary and ZK circuits:**
    ```
-   # Check https://github.com/logos-blockchain/logos-blockchain/releases/latest
-
    wget https://github.com/logos-blockchain/logos-blockchain/\
    releases/download/0.1.2/\
    logos-blockchain-circuits-v0.4.2-linux-x86_64.tar.gz
@@ -375,7 +389,9 @@ Run a full consensus node on the Logos testnet.
    mv logos-blockchain-circuits-v0.4.2/ ~/.logos-blockchain-circuits
    ```
 
-### Blockchain Node — Run & Verify
+---
+
+## Method 4: Blockchain Node — Run & Verify
 
 4. **Generate config with bootstrap peers:**
    ```
@@ -399,7 +415,9 @@ Run a full consensus node on the Logos testnet.
    ```
    Look for mode "Bootstrapping" → "Online". Bootstrap takes 12–24 hours.
 
-### Get Testnet Tokens
+---
+
+## Method 4: Get Testnet Tokens
 
 To stake on the blockchain node, you need testnet tokens:
 
@@ -433,8 +451,6 @@ Run `docker compose logs` to see errors. Common fix: ensure ports aren't already
 
 ## Summary
 
-You have 3 solid options to run a Logos node:
-
 | # | Method | Best for | Effort |
 |---|--------|----------|--------|
 | 1 | **Basecamp** | Desktop GUI, all-in-one | ⭐⭐ (Easy) |
@@ -451,8 +467,6 @@ You have 3 solid options to run a Logos node:
 class: center, middle
 
 ## Need Help?
-
-Resources to get you unstuck:
 
 ### 📚 Documentation
 - Official docs: `docs.logos.co`
@@ -476,7 +490,8 @@ Resources to get you unstuck:
       highlightLanguage: 'bash',
       highlightStyle: 'github-dark',
       highlightLines: true,
-      countIncrementalSlides: false
+      countIncrementalSlides: false,
+      navigation: { scroll: false }
     });
   </script>
 </body>
